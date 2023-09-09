@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HNGx Frontend</title>
+    <style>
+      main {
+        max-width: 100%;
+        padding: 0 3.2rem;
+        margin: 5%;
+        margin-left: 25%;
+      }
+      
+      img{
+        width: 100%;
+      }
+
+      .grid-2-cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5%;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="grid-2-cols">
+      
+        <div class="left-col">
+          <img
+            src="michael.jpeg"
+            alt="Oduah Michael"
+            data-testid="slackDisplayImage"
+          />
+        </div>
+
+        <div class="right-col">
+          <h4 data-testid="slackUserName">Slack Name : Oduah Michael</h4>
+          <h4 data-testid="currentDayOfTheWeek" id="currentDayOfTheWeek"> </h4>
+          <h4 data-testid="currentUTCTime" id="currentUTCTime"></h4>
+          <h4 data-testid="myTrack">Track: Frontend</h4>
+          <a href="https://github.com/Michaeloduah/HNGx-Stage-One-Frontend">
+            <h4 data-testid="githubURL">Github URL</h4>
+          </a>
+        </div>
+      
+    </main>
+
+      <script>
+        function getCurrentDay() {
+          const currentDate = new Date();
+          const options = { weekday: "long" };
+          const currentDay = currentDate.toLocaleDateString("en-US", options);
+          return currentDay;
+        }
+
+        function getCurrentUTCTime() {
+          const currentDate = new Date();
+          const currentUTCTime = currentDate.toISOString();
+          return currentUTCTime;
+        }
+
+        document.getElementById("currentDayOfTheWeek").textContent =
+          getCurrentDay();
+        document.getElementById("currentUTCTime").textContent =
+          getCurrentUTCTime();
+      </script>
+  </body>
+</html>
